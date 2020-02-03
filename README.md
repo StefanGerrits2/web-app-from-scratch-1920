@@ -1,42 +1,55 @@
-# Web App From Scratch @cmda-minor-web 1819
+# Web app from scratch
 
-In this course you will learn to build a web application without frameworks or unnecessary libraries, but with vanilla HTML, CSS & JavaScript as much as possible. The end result is a modular, single page web app (SPA). Data will be retrieved from an external API of your choice, manipulated and finally shown in the UI of the App. You will learn different ways to structure code and develope your own coding style. With the gained knowledge you will be able to build interactive prototypes, based on real data. Also you will gain a better understanding of the how API's, frameworks and libraries work.
+## Concept
 
-## Learning goals
+Images here
 
-* _You can add structure to your code by applying patterns. You can defend the choice for the chosen patterns_
-* _You can retrieve data, manipulate it and dynamically convert it to html elements using templating_
-* _You understand how you can work with an external API using asynchronous code_
-* _You understand how you can manage state in your application and you inform the user of state where necessary_
+### Description
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vTjZGWGPC_RMvTMry8YW5XOM79GEIdgS7I5JlOe6OeeOUdmv7ok1s9jQhzojNE4AsyzgL-jJCbRj1LN/pubhtml?gid=0&single=true)
+Description here
 
-## Program
+## Features
 
-### Week 1 - Hello API 🐒
+* Features here
 
-Goal: Retrieve data from an API and render it in an overview page.
+## Installation
 
-[Excercises](https://github.com/cmda-minor-web/web-app-from-scratch-1920/blob/master/course/week-1.md)
+### 1. Clone this repository to your computer
+Run this command in your terminal:
 
-[Slides](https://drive.google.com/open?id=1Rjl9xqXoKniQSRJPdkU1O5YwWC33SJK8KiV0a-H_xZU)
+`git clone https://github.com/StefanGerrits2/web-app-from-scratch-1920`
+### 2. Navigate into the root of the folder
+Run this command in your terminal:
 
-### Week 2 - Design and Refactor 🛠
+`cd frontend-data`
 
-Goal: Design the web app. Add routes and states. Rendering detail page.
+### 3. Viewing the website
+Open the `index.html` file in a browser.
 
-[Excercises](https://github.com/cmda-minor-web/web-app-from-scratch-1920/blob/master/course/week-2.md)
+>
+> ###### NOTE:
+> You can't just open your `index.html` file because I use es6 modoules. You need to start a live server to make it work. For example, I use the plugin `Preview on Web Server`.
 
-[Slides](https://drive.google.com/open?id=1IqQeu1m0dQiSC_KCvrn8eencAgtYe7X6qT-gm0n9Bmc)
+## API
 
-### Week 3 - Wrapping up 🎁
+* Info about API here
 
-Goal:
-Manipulate data. Split code into modules. Reflect on end result
+## Sources
 
-[Excercises](https://github.com/cmda-minor-web/web-app-from-scratch-1920/blob/master/course/week-3.md)
+* [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code.
 
-[Slides](https://drive.google.com/open?id=1BSzGYNLMgtHD4HRnK7f0DgyTv4Pg3xsQwD_eYNo7v0Y)
+## Credits
+
+* 
+
+## Check it out!
+
+* [Click here to open the live link](https://stefangerrits2.github.io/web-app-from-scratch-1920/)
+
+## License
+
+[MIT](https://github.com/StefanGerrits2/web-app-from-scratch-1920/blob/master/LICENSE.txt) © Stefan Gerrits
+
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
