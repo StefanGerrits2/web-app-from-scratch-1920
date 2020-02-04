@@ -1,0 +1,65 @@
+@font-face {
+    font-family: Roboto-medium;
+    src: url(./fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: Roboto-regular;
+    src: url(./fonts/Roboto/Roboto-Regular.ttf);;
+}
+
+@font-face {
+    font-family: Roboto-light;
+    src: url(./fonts/Roboto/Roboto-Light.ttf);
+}
+
+body {
+    margin: 0em;
+    background-color: rgb(32, 32, 32);
+    overflow-x: hidden;
+}
+
+header {
+    background-color: black;
+    padding: .1rem;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+img {
+    height: 10em;
+}
+
+h1 {
+    margin-left: 20%;
+    font-family: Roboto-medium;
+    color: #C8493B;
+}
+
+h2 {
+    font-family: Roboto-regular;
+    color: #689775;
+}
+
+p {
+    font-family: Roboto-light;
+    color: black;
+}
+
+#cardsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 60%;
+    margin: 0em auto;
+}
+
+#cardsDiv article {
+    width: 33%;
+    background-color: white;
+}
+
+#pagination {
+    margin-left: 20%;
+    margin-bottom: 2em;
+}
