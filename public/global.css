@@ -13,9 +13,13 @@
     src: url(./fonts/Roboto/Roboto-Light.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0em;
-    background-color: rgb(32, 32, 32);
+    background-color: black;
     overflow-x: hidden;
 }
 
@@ -23,7 +27,6 @@ header {
     background-color: black;
     padding: .1rem;
     width: 100%;
-    margin-bottom: 2em;
 }
 
 img {
@@ -38,12 +41,17 @@ h1 {
 
 h2 {
     font-family: Roboto-regular;
-    color: #689775;
+    color: white;
+    padding: 0em 1.5em;
 }
 
 p {
     font-family: Roboto-light;
-    color: black;
+    color: white
+}
+
+.tagline {
+    padding: 0em 1.5em;
 }
 
 #cardsDiv {
@@ -52,14 +60,31 @@ p {
     text-align: center;
     width: 60%;
     margin: 0em auto;
+    justify-content: space-between;
 }
 
 #cardsDiv article {
-    width: 33%;
-    background-color: white;
+    width: 30%;
+    background-color: #689775;
+    margin-top: 2em;
 }
 
-#pagination {
+#pagination__container {
+    width: 60%;
     margin-left: 20%;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
 }
+
+#pagination__container button {
+    background-color: transparent;
+    border: 2px solid #A33326;
+    color: #A33326;
+    padding: 1em 1.5em;
+    font-family: Roboto-medium;
+    cursor: pointer;
+}
+
+button:focus { outline:none }

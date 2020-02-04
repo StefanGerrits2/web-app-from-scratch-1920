@@ -1,47 +1,62 @@
 // Set standard values
 let topic = 'beers'
 let page = '1'
-let limit = '10'
+let limit = '12'
 
 // Main function
 function loadApp(topic, page, limit) {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.punkapi.com/v2/${topic}?page=${page}&per_page=${limit}`)
-        .then((response) => {
-            return response.json();
+        .then((res) => {
+            return res.json();
         })
         .then((rawData) => {
             createList(rawData)
             console.log(rawData)
         })
+        .catch(err => console.error(err))
 }
 
 // Run main app
 loadApp(topic, page, limit);
 
+// Current page
+const currentPage = document.getElementById('pagination-count')
+
+// Pagination buttons
 const nextPage = document.getElementById('nextPage')
 nextPage.addEventListener('click', paginationNext)
 
 function paginationNext() {
+    // Add 1 count to current page
     page++
+    // Run main app
     loadApp(topic, page, limit)
+    // Scroll to the top
+    window.scrollTo(500, 0);
 }
 
 const previousPage = document.getElementById('previousPage')
 previousPage.addEventListener('click', paginationPrevious)
 
 function paginationPrevious() {
+    // if page is 1 do nothing
     if(page === 1) {
         //
     }
     else {
+        // Remove 1 count from current page
         page--
+        // Run main app
         loadApp(topic, page, limit)
+        // Scroll to the top
+        window.scrollTo(500, 0);
     }
 }
 
+// Create HTML template and render it
 function createList(data) {
     const cardsDiv = document.getElementById('cardsDiv')
-
+    currentPage.innerHTML = `Page: ${page}`
     // Create a card for each beer
     const cards = data.map(data => {
         return `
