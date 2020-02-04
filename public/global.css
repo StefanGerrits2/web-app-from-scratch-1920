@@ -120,4 +120,10 @@ button:focus { outline:none }
         margin-top: 2em;
         cursor: pointer;
     }
+
+    #cardsDiv,
+    #pagination__container,
+    h1 {
+        width: 85%;
+    }
 }
