@@ -41,7 +41,7 @@ previousPage.addEventListener('click', paginationPrevious)
 function paginationPrevious() {
     // if page is 1 do nothing
     if(page === 1) {
-        //
+        //nothing
     }
     else {
         // Remove 1 count from current page
