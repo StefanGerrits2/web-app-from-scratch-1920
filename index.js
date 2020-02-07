@@ -63,7 +63,7 @@ function createList(data) {
             <article id="cardDiv">
                 <h2 class="name">${data.name}</h2>
                 <img src="${data.image_url}"/>
-                <p class="tagline">${data.tagline}</p>
+                <p class="tagline">"${data.tagline}"</p>
             </article>
         `;
     }).join('');
