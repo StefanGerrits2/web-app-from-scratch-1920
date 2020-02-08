@@ -5,7 +5,11 @@ let limit = '12'
 
 // Main function
 function loadApp(topic, page, limit) {
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.punkapi.com/v2/${topic}?page=${page}&per_page=${limit}`)
+    const corsUrl = "https://cors-anywhere.herokuapp.com/" ;
+    const apiUrl = "https://api.punkapi.com/v2/";
+    const url = `${corsUrl}${apiUrl}${topic}?page=${page}&per_page=${limit}`;
+
+    fetch(url)
         .then((res) => {
             return res.json();
         })
@@ -31,8 +35,6 @@ function paginationNext() {
     page++
     // Run main app
     loadApp(topic, page, limit)
-    // Scroll to the top
-    window.scrollTo(500, 0);
 }
 
 const previousPage = document.getElementById('previousPage')
@@ -40,7 +42,7 @@ previousPage.addEventListener('click', paginationPrevious)
 
 function paginationPrevious() {
     // if page is 1 do nothing
-    if(page === 1) {
+    if(page == 1) {
         //nothing
     }
     else {
@@ -48,8 +50,6 @@ function paginationPrevious() {
         page--
         // Run main app
         loadApp(topic, page, limit)
-        // Scroll to the top
-        window.scrollTo(500, 0);
     }
 }
 
