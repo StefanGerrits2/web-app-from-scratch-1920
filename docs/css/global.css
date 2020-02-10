@@ -58,6 +58,11 @@ a {
     cursor: pointer;
 }
 
+body > p {
+    width: 65%;
+    margin: 0em auto;
+}
+
 .name {
     min-height: 3em;
 }

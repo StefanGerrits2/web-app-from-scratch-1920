@@ -1,6 +1,7 @@
 import { Fetcher } from './docs/modules/fetch.js';
-import renderCard from './docs/modules/renderCard.js';
 import transformData from './docs/modules/transformData.js'
+import renderCard from './docs/modules/renderCard.js';
+// import renderDetailCard from './docs/modules/renderDetailCard.js';
 
 // Set standard query values
 let topic = 'beers';
@@ -40,5 +41,5 @@ function renderMoreCards() {
 routie({
     '': () => console.log('overview'),
     'test': () => console.log('test succesful'),
-    '*': (name) => console.log(name),
+    '*': (title) => console.log(title)
 });
