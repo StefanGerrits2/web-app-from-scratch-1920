@@ -23,7 +23,7 @@ Run this command in your terminal:
 ### 2. Navigate into the root of the folder
 Run this command in your terminal:
 
-`cd frontend-data`
+`cd web-app-from-scratch-1920`
 
 ### 3. Viewing the website
 Open the `index.html` file in a browser.
@@ -34,7 +34,35 @@ Open the `index.html` file in a browser.
 
 ## API
 
-* Info about API here
+#### PUNK API
+
+Returns different kinds of beers with a lot of information, some details are:
+
+<details>
+    <summary>Click here for the data properties</summary>
+        <ul>
+            <li>Name</li>
+            <li>Tagline</li>
+            <li>First brewed</li>
+            <li>Description</li>
+            <li>Image</li>
+            <li>Volume</li>
+            <li>Boil volume</li>
+            <li>Method</li>
+            <li>Ingredients</li>
+            <li>Food pairing</li>
+            <li>Brewers tips</li>
+            <li>Contributed  by</li>
+        </ul>
+</details>
+<br>
+
+* Each IP that makes a request has a rate limit of 3600 requests per hour.
+* No key needed
+* HTTPS
+
+#### Default output in the console:
+![image](https://user-images.githubusercontent.com/45566396/74155214-71c4c800-4c14-11ea-8a46-902ec25dc87f.png)
 
 ## Sources
 
