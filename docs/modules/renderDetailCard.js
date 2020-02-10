@@ -8,6 +8,7 @@ export default function renderDetailPage(data) {
         tagline = document.createElement('p'),
         volume = document.createElement('p'),
         boil_volume = document.createElement('p'),
+        alcohol_percentage = document.createElement('p'),
         goBack = document.createElement('a');
 
     detailCard.setAttribute('class', 'card');
@@ -21,6 +22,7 @@ export default function renderDetailPage(data) {
     img.src = data.image_url;
     volume.textContent = 'Volume: ' + data.volume;
     boil_volume.textContent = 'Boil volume: ' + data.boil_volume;
+    alcohol_percentage.textContent = 'Alcohol by volume: ' + data.abv + '%';
     goBack.textContent = 'Terug';
     goBack.href= '';
 
@@ -33,6 +35,7 @@ export default function renderDetailPage(data) {
 
     right_container.appendChild(volume);
     right_container.appendChild(boil_volume);
+    right_container.appendChild(alcohol_percentage);
     detailCard.appendChild(goBack)
 
     /* Hide elements */
