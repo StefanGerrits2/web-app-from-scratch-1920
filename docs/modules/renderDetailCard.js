@@ -2,28 +2,37 @@
 export default function renderDetailPage(data) {
     const detailCard = document.createElement('article'),
         title = document.createElement('h2'),
-        tagline = document.createElement('p'),
         img = document.createElement('img'),
+        left_container = document.createElement('div'),
+        right_container = document.createElement('div'),
+        tagline = document.createElement('p'),
         volume = document.createElement('p'),
         boil_volume = document.createElement('p'),
         goBack = document.createElement('a');
 
     detailCard.setAttribute('class', 'card');
     detailCard.setAttribute('id', data.name);
+    left_container.setAttribute('class', 'left-container')
+    right_container.setAttribute('class', 'right-container')
+    goBack.setAttribute('id', 'goBack')
 
     title.textContent = data.name;
     tagline.textContent = data.tagline;
     img.src = data.image_url;
-    volume.textContent = data.volume;
-    boil_volume.textContent = data.boil_volume;
+    volume.textContent = 'Volume: ' + data.volume;
+    boil_volume.textContent = 'Boil volume: ' + data.boil_volume;
     goBack.textContent = 'Terug';
     goBack.href= '';
 
-    detailCard.appendChild(title);
-    detailCard.appendChild(img);
-    detailCard.appendChild(tagline);
-    detailCard.appendChild(volume);
-    detailCard.appendChild(boil_volume);
+    detailCard.appendChild(left_container)
+    detailCard.appendChild(right_container)
+
+    left_container.appendChild(title);
+    left_container.appendChild(img);
+    left_container.appendChild(tagline);
+
+    right_container.appendChild(volume);
+    right_container.appendChild(boil_volume);
     detailCard.appendChild(goBack)
 
     return detailCard;

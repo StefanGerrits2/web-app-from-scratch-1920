@@ -30,7 +30,7 @@ function loadApp(topic, page, amount) {
                 '': () => console.log('overview'),
                 'test': () => console.log('test succesful'),
                 '*': (title) => data.map(item => {
-                    if (item.name == title) {
+                    if (item.name === title) {
                         document.getElementById('detailDiv').appendChild(renderDetailCard(item));
                         window.scrollTo(0,document.body.scrollHeight);
                     }
