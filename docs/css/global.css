@@ -26,6 +26,7 @@ body {
     margin: 0em;
     background-color: black;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -49,6 +50,12 @@ h2 {
     font-family: Roboto-regular;
     color: white;
     padding: 0em 1em;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .name {
@@ -79,7 +86,6 @@ p {
     width: 30%;
     background-color: #689775;
     margin-top: 2em;
-    cursor: pointer;
 }
 
 #pagination__container {

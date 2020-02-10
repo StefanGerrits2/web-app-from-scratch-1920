@@ -1,5 +1,6 @@
 import { Fetcher } from './docs/modules/fetch.js';
 import renderCard from './docs/modules/renderCard.js';
+import transformData from './docs/modules/transformData.js'
 
 // Set standard query values
 let topic = 'beers';
@@ -15,7 +16,9 @@ function loadApp(topic, page, amount) {
     const apiUrl = 'https://api.punkapi.com/v2/';
     const url = `${apiUrl}${topic}?page=${page}&per_page=${amount}`;
 
+    // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
     return Fetcher.get(url)
+        .then(data => transformData(data))
         .then(data => {
             console.log(data)
             data.forEach(data => {  
@@ -32,3 +35,10 @@ function renderMoreCards() {
     page++;
     loadApp(topic, page, amount);
 };
+
+// Router
+routie({
+    '': () => console.log('overview'),
+    'test': () => console.log('test succesful'),
+    '*': (name) => console.log(name),
+});
