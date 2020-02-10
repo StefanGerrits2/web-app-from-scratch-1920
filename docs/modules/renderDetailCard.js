@@ -35,5 +35,10 @@ export default function renderDetailPage(data) {
     right_container.appendChild(boil_volume);
     detailCard.appendChild(goBack)
 
+    /* Hide elements */
+    document.querySelector('.cardsDiv').classList.toggle('hide')
+    document.querySelector('.pagination__container').classList.toggle('hide')
+    document.querySelector('header').classList.toggle('hide')
+
     return detailCard;
 }

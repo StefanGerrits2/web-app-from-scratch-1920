@@ -72,7 +72,7 @@ p {
 }
 
 /* Overview container*/
-#cardsDiv {
+.cardsDiv {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -83,20 +83,19 @@ p {
 }
 
 /* Overview article */
-#cardsDiv article {
+.cardsDiv article {
     width: 30%;
     background-color: #689775;
     margin-top: 2em;
 }
 
-#cardsDiv h2 {
+.cardsDiv h2 {
     padding: 0em 1em;
 }
 
 /* Detail page article */
 #detailDiv article {
     background-color: #689775;
-    margin-top: 3em;
     width: 100%;
     height: 100vh;
     padding-left: 2em;
@@ -142,7 +141,7 @@ p {
 }
 
 /* Load button */
-#pagination__container {
+.pagination__container {
     width: 65%;
     margin: 0em auto;
     margin-top: 1em;
@@ -151,7 +150,7 @@ p {
     justify-content: space-between;
 }
 
-#pagination__container button {
+.pagination__container button {
     background-color: transparent;
     border: 2px solid #A33326;
     color: #A33326;
@@ -160,7 +159,7 @@ p {
     cursor: pointer;
 }
 
-#pagination__container button:hover {
+.pagination__container button:hover {
     color: black;
     background-color: #A33326;
     transition: 0.2s;
@@ -170,10 +169,15 @@ button:focus {
     outline: none 
 }
 
+/* Hide elements when in detail page */
+.hide {
+    display: none;
+}
+
 /* Media queries */
 
 @media screen and (max-width: 1300px) {
-    #cardsDiv article {
+    .cardsDiv article {
         width: 45%;
         background-color: #689775;
         margin-top: 2em;
@@ -181,13 +185,13 @@ button:focus {
 }
 
 @media screen and (max-width: 650px) {
-    #cardsDiv article {
+    .cardsDiv article {
         width: 100%;
         background-color: #689775;
         margin-top: 2em;
     }
 
-    #cardsDiv,
+    .cardsDiv,
     #pagination__container,
     h1 {
         width: 85%;

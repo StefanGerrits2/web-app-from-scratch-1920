@@ -23,7 +23,7 @@ function loadApp(topic, page, amount) {
         .then(data => {
             console.log(data)
             data.forEach(data => {  
-                document.getElementById('cardsDiv').appendChild(renderCard(data));
+                document.querySelector('.cardsDiv').appendChild(renderCard(data));
             });
             // Router
             routie({
@@ -40,7 +40,7 @@ function loadApp(topic, page, amount) {
 };
 
 // Pagination buttons
-document.getElementById('nextPage').addEventListener('click', renderMoreCards);
+document.querySelector('.loadMore').addEventListener('click', renderMoreCards);
 
 function renderMoreCards() {
     // Load more cards
