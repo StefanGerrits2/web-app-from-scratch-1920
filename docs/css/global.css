@@ -93,6 +93,14 @@ p {
     margin-top: 2em;
 }
 
+#detailDiv article {
+    width: 30%;
+    background-color: #689775;
+    margin-top: 2em;
+    width: 65%;
+    margin: 0em auto;
+}
+
 #pagination__container {
     width: 65%;
     margin: 0em auto;

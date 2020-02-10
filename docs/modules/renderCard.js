@@ -8,11 +8,10 @@ export default function renderCard(data) {
         img = document.createElement('img');
     
     card.setAttribute('class', 'card');
-    card.setAttribute('id', data.name);
 
     a.textContent = data.name;
     // Set target for routie
-    a.href = `#` + data.name
+    a.href = `#` + data.name;
     p.textContent = data.tagline;
     img.src = data.image_url;
 

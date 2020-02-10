@@ -1,7 +1,7 @@
 import { Fetcher } from './docs/modules/fetch.js';
 import transformData from './docs/modules/transformData.js'
 import renderCard from './docs/modules/renderCard.js';
-// import renderDetailCard from './docs/modules/renderDetailCard.js';
+import renderDetailCard from './docs/modules/renderDetailCard.js';
 
 // Set standard query values
 let topic = 'beers';
@@ -25,6 +25,17 @@ function loadApp(topic, page, amount) {
             data.forEach(data => {  
                 document.getElementById('cardsDiv').appendChild(renderCard(data));
             });
+            // Router
+            routie({
+                '': () => console.log('overview'),
+                'test': () => console.log('test succesful'),
+                '*': (title) => data.map(item => {
+                    if (item.name == title) {
+                        document.getElementById('detailDiv').appendChild(renderDetailCard(item));
+                        window.scrollTo(0,document.body.scrollHeight);
+                    }
+                })
+            });
         });
 };
 
@@ -36,10 +47,3 @@ function renderMoreCards() {
     page++;
     loadApp(topic, page, amount);
 };
-
-// Router
-routie({
-    '': () => console.log('overview'),
-    'test': () => console.log('test succesful'),
-    '*': (title) => console.log(title)
-});

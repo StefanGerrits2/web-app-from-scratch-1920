@@ -5,7 +5,8 @@ export default function renderDetailPage(data) {
         tagline = document.createElement('p'),
         img = document.createElement('img'),
         volume = document.createElement('p'),
-        boil_volume = document.createElement('p');
+        boil_volume = document.createElement('p'),
+        goBack = document.createElement('a');
 
     detailCard.setAttribute('class', 'card');
     detailCard.setAttribute('id', data.name);
@@ -15,12 +16,15 @@ export default function renderDetailPage(data) {
     img.src = data.image_url;
     volume.textContent = data.volume;
     boil_volume.textContent = data.boil_volume;
+    goBack.textContent = 'Terug';
+    goBack.href= '';
 
     detailCard.appendChild(title);
     detailCard.appendChild(img);
     detailCard.appendChild(tagline);
     detailCard.appendChild(volume);
     detailCard.appendChild(boil_volume);
+    detailCard.appendChild(goBack)
 
     return detailCard;
 }
