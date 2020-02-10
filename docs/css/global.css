@@ -197,6 +197,10 @@ button:focus {
         width: 85%;
     }
 
+    .pagination__container {
+        width: 85%;
+    }
+
     #detailDiv article {
         flex-direction: column;
         padding-left: 0em;
