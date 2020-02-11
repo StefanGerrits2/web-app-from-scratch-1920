@@ -9,7 +9,7 @@ let page = '1';
 let amount = '12';
 
 // Run main app
-loadApp(topic, page, amount);
+loadApp(topic, page, amount)
 
 // Main function
 function loadApp(topic, page, amount) {
@@ -21,7 +21,7 @@ function loadApp(topic, page, amount) {
     return Fetcher.get(url)
         .then(data => transformData(data))
         .then(data => {
-            console.log(data)
+            console.log(data);
             // Router
             routie({
                 '/': data.forEach(data => {  
