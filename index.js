@@ -14,25 +14,22 @@ loadApp(topic, page, amount);
 // Main function
 function loadApp(topic, page, amount) {
     // Set url values
-    const apiUrl = 'https://api.punkapi.com/v2/';
-    const url = `${apiUrl}${topic}?page=${page}&per_page=${amount}`;
+    const baseApiUrl = 'https://api.punkapi.com/v2/';
+    const url = `${baseApiUrl}${topic}?page=${page}&per_page=${amount}`;
 
     // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
     return Fetcher.get(url)
         .then(data => transformData(data))
         .then(data => {
             console.log(data)
-            data.forEach(data => {  
-                document.querySelector('.cardsDiv').appendChild(renderCard(data));
-            });
             // Router
             routie({
-                '': () => console.log('overview'),
-                'test': () => console.log('test succesful'),
-                '*': (title) => data.map(item => {
+                '/': data.forEach(data => {  
+                    document.querySelector('.overview__container').appendChild(renderCard(data));
+                }),
+                '*': (title) => data.forEach(item => {
                     if (item.name === title) {
-                        document.getElementById('detailDiv').appendChild(renderDetailCard(item));
-                        window.scrollTo(0,document.body.scrollHeight);
+                        document.querySelector('.details__container').appendChild(renderDetailCard(item));
                     }
                 })
             });
