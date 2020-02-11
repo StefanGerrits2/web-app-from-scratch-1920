@@ -36,11 +36,11 @@ function loadApp(topic, page, amount) {
         });
 };
 
-// Pagination buttons
+// Load more button
 document.querySelector('.loadMore').addEventListener('click', renderMoreCards);
 
 function renderMoreCards() {
-    // Load more cards
+    // Update query
     page++;
     loadApp(topic, page, amount);
 };

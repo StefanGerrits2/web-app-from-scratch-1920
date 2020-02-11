@@ -1,7 +1,8 @@
 // Create HTML template and render it
 export default function renderDetailPage(data) {
         // Append data
-        const title = document.createElement('h2'),
+        const 
+            title = document.createElement('h2'),
             img = document.createElement('img'),
             tagline = document.createElement('p'),
             volume = document.createElement('p'),

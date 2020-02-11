@@ -1,7 +1,8 @@
 // Create HTML template and render it
 export default function renderCard(data) {
     // Create elements
-    const card = document.createElement('article'),
+    const 
+        card = document.createElement('article'),
         title = document.createElement('h2'),
         titleLink = document.createElement('a'),
         img = document.createElement('img'),
