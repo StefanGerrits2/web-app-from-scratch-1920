@@ -27,8 +27,8 @@ function loadApp(topic, page, amount) {
                 '/': data.forEach(data => {  
                     document.querySelector('.overview__container').appendChild(renderCard(data));
                 }),
-                '*': (title) => data.forEach(item => {
-                    if (item.name === title) {
+                ':id': (id) => data.forEach(item => {
+                    if (item.name === id) {
                         document.querySelector('.details__container').appendChild(renderDetailCard(item));
                     }
                 })

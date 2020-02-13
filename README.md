@@ -4,6 +4,8 @@
 
 ![image](https://user-images.githubusercontent.com/45566396/74153745-8e133580-4c11-11ea-8278-3786d9889389.png)
 
+![image](https://user-images.githubusercontent.com/45566396/74469402-e0b45200-4e9c-11ea-9f25-5adde59f553a.png)
+
 ### Description
 
 This is a single page web app that uses the PUNK API to receive beers. The beers are shown in the overview page. You can click on a beer to checkout the detail page for further information; including ingredients and recipes.
@@ -13,6 +15,21 @@ This is a single page web app that uses the PUNK API to receive beers. The beers
 * Loading in data from the PUNK API
 * Loading in more data when you click on a button
 * Being able to view a detail page
+
+Future features:
+
+* Local storage
+* 
+
+## How it works
+
+#### Actor diagram
+
+![image](https://user-images.githubusercontent.com/45566396/74469222-85825f80-4e9c-11ea-9955-d1a7b22684fb.png)
+
+#### Interaction diagram
+
+![image](https://user-images.githubusercontent.com/45566396/74469284-a5198800-4e9c-11ea-9184-2651bc2925d6.png)
 
 ## Installation
 
