@@ -1,7 +1,6 @@
 import { Fetcher } from './docs/modules/fetch.js';
 import transformData from './docs/modules/transformData.js'
-import renderCard from './docs/modules/renderCard.js';
-import renderDetailCard from './docs/modules/renderDetailCard.js';
+import router from './docs/modules/router.js'
 
 // Set standard query values
 let topic = 'beers';
@@ -17,23 +16,32 @@ function loadApp(topic, page, amount) {
     const baseApiUrl = 'https://api.punkapi.com/v2/';
     const url = `${baseApiUrl}${topic}?page=${page}&per_page=${amount}`;
 
-    // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
-    return Fetcher.get(url)
-        .then(data => transformData(data))
-        .then(data => {
-            console.log(data);
-            // Router
-            routie({
-                '/': data.forEach(data => {  
-                    document.querySelector('.overview__container').appendChild(renderCard(data));
-                }),
-                ':id': (id) => data.forEach(item => {
-                    if (item.name === id) {
-                        document.querySelector('.details__container').appendChild(renderDetailCard(item));
-                    }
-                })
+    // Store local storage data
+    let storedData = localStorage.getItem('myData');
+
+    // if localstorage is available
+    if (storedData) {
+        console.log('local storage exists');
+        // Parse localstorage to JSON
+        let data = JSON.parse(localStorage.getItem('myData'));
+        console.log(data);
+        // Router
+        router(data);
+    }
+    else {
+        // fetch data
+        console.log('local storage does NOT exist')
+        // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
+        return Fetcher.get(url)
+            .then(data => transformData(data))
+            .then(data => {
+                console.log(data);
+                // Stringify JSON for localstorage
+                localStorage.setItem('myData', JSON.stringify(data));
+                // Router
+                router(data);
             });
-        });
+    }
 };
 
 // Load more button
