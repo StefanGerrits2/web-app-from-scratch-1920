@@ -18,7 +18,7 @@ export default function renderDetailPage(data) {
             left_container = document.querySelector('.left__container'),
             right_container = document.querySelector('.right__container');
 
-    detailCard.setAttribute('id', data.name);
+    detailCard.setAttribute('id', data.id);
     goBack.setAttribute('id', 'goBack')
 
     title.textContent = data.name;

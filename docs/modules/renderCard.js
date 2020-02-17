@@ -1,5 +1,5 @@
 // Create HTML template and render it
-export default function renderCard(data) {
+export default function renderCard(item) {
     // Create elements
     const 
         card = document.createElement('article'),
@@ -10,12 +10,12 @@ export default function renderCard(data) {
         p = document.createElement('p');
 
     // Append data
-    titleLink.textContent = data.name;
-    p.textContent = data.tagline;
-    img.src = data.image_url;
+    titleLink.textContent = item.name;
+    p.textContent = item.tagline;
+    img.src = item.image_url;
 
     // Set hrefs for router
-    titleLink.href = imgLink.href = `#` + data.name;
+    titleLink.href = imgLink.href = `#` + item.id;
 
     // Append data 
     title.appendChild(titleLink)
