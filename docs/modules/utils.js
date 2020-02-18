@@ -1,5 +1,5 @@
 function getStoredData(data) {
-    return JSON.parse(localStorage.getItem(data))
+    return JSON.parse(localStorage.getItem(data));
 }
 
 function storeData(key, data) {
@@ -9,4 +9,4 @@ function storeData(key, data) {
 export {
     getStoredData,
     storeData,
-}
+};

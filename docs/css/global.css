@@ -24,6 +24,10 @@ body {
     overflow-x: hidden;
 }
 
+#text {
+    display: none;
+}
+
 header {
     background-color: black;
     padding: .1rem;
@@ -136,6 +140,10 @@ p {
 .details__container img {
     height: 20em;
     margin-bottom: 2em;
+}
+
+text {
+    display: none;
 }
 
 /* Back button */

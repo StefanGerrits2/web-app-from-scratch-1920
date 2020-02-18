@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="./docs/css/global.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
         <title>Beer collection</title>
     </head>
     <body>
@@ -15,16 +16,43 @@
         <div class="pagination__container">
             <button class="loadMore">Load more</button>
         </div>
-        <div class="details__container">
-            <article class="article-detail__container">
+        <div class="details__container"></div>
+
+        <!-- Overview template -->
+        <script type="text/template" id="overview-template">
+            {{#beers}}
+                <article>
+                    <h2>
+                        <a href="#{{id}}">{{name}}</a>
+                    </h2>
+                    <a href="#{{id}}">
+                        <img src="{{image_url}}"/>
+                    </a>
+                    <p>{{tagline}}</p>
+                </article>
+            {{/beers}}
+        </script>
+        <!-- Details template -->
+        <script type="text/template" id="details-template">
+            <article class="article-detail__container" id="{{id}}">
                 <div class="left__container">
-                    <div class="left__container-content"></div>
+                    <div class="left__container-content">
+                        <h2>{{name}}</h2>
+                        <img src="{{image_url}}" alt="">
+                        <p>{{tagline}}</p>
+                    </div>
                 </div>
                 <div class="right__container">
-                    <div class="right__container-content"></div>
+                    <div class="right__container-content">
+                        <p>Volume: {{volume}}</p>
+                        <p>Boil volume: {{boil_volume}}</p>
+                        <p>Alcohol by volume: {{alcohol_percentage}}</p>
+                        <p>Brewers tips: {{brewers_tips}}</p>
+                    </div>
                 </div>
+                <a id="goBack" href="">Back</a>
             </article>
-        </div>
+        </script>
         <script src="./docs/modules//libraries/routie.js"></script>
         <script type="module" src="./index.js"></script>
     </body>
