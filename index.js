@@ -7,10 +7,10 @@
 // let page = 1;
 // let amount = 12;
 
-// let allData = [];
+// let allData = {beers: []};
 
 // // Run main app
-// loadApp(page, amount)
+// loadApp(page, amount);
 
 // // Main function
 // function loadApp(page, amount) {
@@ -28,17 +28,17 @@
 //         router(storedData, storedData);
 //     }
 //     else {
-//         console.log('local storage does NOT exist -> Fetching')
+//         console.log('local storage does NOT exist -> Fetching');
 //         // fetch data
 //         // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
 //         return Fetcher.get(url)
-//             .then(data => transformData(data))
+//             .then(data => dataHelper(data))
 //             .then(data => {
-//                 console.log('new data: ',data);
+//                 console.log('new data: ', data);
 //                 // Stringify JSON for localstorage
-//                 data.forEach(item => allData.push(item))
+//                 data.forEach(item => allData.push(item));
 //                 utils.storeData('myData', allData);
-//                 console.log('all data: ', allData)
+//                 console.log('all data: ', allData);
 //                 let storedData2 = utils.getStoredData('myData');
 
 //                 // Router
@@ -53,26 +53,26 @@
 // function renderMoreCards() {
 //     // Update query
 //     page++;
-//     console.log(page)
+//     console.log(page);
 //     loadApp(page, amount);
 // };
 
 import { Fetcher } from './docs/modules/fetch.js';
 import dataHelper from './docs/modules/dataHelper.js';
 import router from './docs/modules/router.js';
+// import * as utils from './docs/modules/utils.js';
 
 // Set standard query values
 let page = 1;
-let amount = 12;
 
 // Run main app
-loadApp(page, amount);
+loadApp(page);
 
 // Main function
-function loadApp(page, amount) {
+function loadApp(page) {
     // Set url values
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
-    const url = `${baseApiUrl}?page=${page}&per_page=${amount}`;
+    const url = `${baseApiUrl}?page=${page}&per_page=12`;
 
     // fetch data
     // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
@@ -80,7 +80,6 @@ function loadApp(page, amount) {
         .then(data => dataHelper(data))
         .then(data => {
             console.log('new data: ', data);
-            // Stringify JSON for localstorage
             // Router
             router(data);
         });  
@@ -93,5 +92,5 @@ function renderMoreCards() {
     // Update query
     page++;
     console.log(page);
-    loadApp(page, amount);
+    loadApp(page);
 };

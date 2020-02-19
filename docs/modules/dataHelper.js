@@ -1,5 +1,5 @@
 // Add data
-//let structuredData = {beers: []}
+// let structuredData = {beers: []};
 
 export default function dataHelper(data) {
     // Update data
@@ -9,8 +9,6 @@ export default function dataHelper(data) {
         item.boil_volume = item.boil_volume.value + ' ' + item.boil_volume.unit;
 
         structuredData.beers.push(item);
-    
-        console.log(structuredData);
     });
 
     return structuredData;
