@@ -1,14 +1,12 @@
-import renderCard from './renderCard.js';
-import renderDetailPage from './renderDetailCard.js';
+import * as template from './templates.js';
 
 export default function router(data) {
     routie({
-        '/': 
-            renderCard(data),        
+        '/': template.renderOverviewCard(data),        
         ':id': (id) => data.beers.forEach(item => {
             if (item.id == id) {
                 console.log(item);
-                renderDetailPage(item);
+                template.renderDetailCard(item);
             }
         })
     });
