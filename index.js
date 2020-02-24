@@ -62,47 +62,46 @@ import dataHelper from './docs/modules/dataHelper.js';
 import * as template from '././docs/modules/templates.js';
 import * as utils from './docs/modules/utils.js';
 
-// Set standard query values
-let page = 1;
+// Set and update current page
+let currentPage = 1;
 
 // Store all data
 let allData = {beers: []};
 
 // Main function
-function loadOverview(page) {
+function renderOverviewCards() {
     // Set url values
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
-    const url = `${baseApiUrl}?page=${page}&per_page=12`;
+    const url = `${baseApiUrl}?page=${currentPage}&per_page=12`;
 
     console.log('fetching...');
     // fetch data
     // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
-    return Fetcher.get(url)
+    Fetcher.get(url)
         .then(data => dataHelper(data))
         .then(data => {
             // Store current data plus new data
             data.forEach(item => {
                 allData.beers.push(item);
             });
-            
             console.log('alldata', allData);
             // Render overview card
             template.renderOverviewCard(allData);
         });  
 }
 
-// Load more button
-document.querySelector('.loadMore').addEventListener('click', renderMoreCards);
-
 // Load more beers
-function renderMoreCards() {
-    // Update query
-    page++;
-    loadOverview(page);
-};
+document.querySelector('.loadMore').addEventListener('click', () => {
+    currentPage++;
+    renderOverviewCards(currentPage);
+});
 
 routie({
-    '/': loadOverview(page),    
+    '/': renderOverviewCards(),    
 
-    ':id': id => template.renderDetailCard(allData.beers.filter(utils.filterClickedBeer(id)))
+    ':id': id => template.renderDetailCard(
+        allData.beers.filter(
+            utils.filterClickedBeer(id)
+        )
+    )
 });

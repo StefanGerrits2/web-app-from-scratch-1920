@@ -28,7 +28,7 @@
                     <a href="#{{id}}">
                         <img src="{{image_url}}"/>
                     </a>
-                    <p>{{tagline}}</p>
+                    <p class="tagline">{{tagline}}</p>
                 </article>
             {{/beers}}
         </script>
@@ -39,15 +39,27 @@
                     <div class="left__container-content">
                         <h2>{{name}}</h2>
                         <img src="{{image_url}}" alt="">
-                        <p>{{tagline}}</p>
+                        <p class="tagline">{{tagline}}</p>
                     </div>
                 </div>
                 <div class="right__container">
                     <div class="right__container-content">
+                        <h3>General information</h3>
                         <p>Volume: {{readableVolume}}</p>
                         <p>Boil volume: {{readableBoilVolume}}</p>
                         <p>Alcohol by volume: {{abv}}%</p>
                         <p>Brewers tips: {{brewers_tips}}</p>
+                        <h3>Ingredients</h3>
+                        <ul class="ingredients__container">
+                            {{#ingredients}}
+                                <li>{{name}}, 
+                                    {{#amount}}
+                                        {{amount.value}} {{amount.unit}},
+                                    {{/amount}} 
+                                    {{type}}
+                                </li>
+                            {{/ingredients}}
+                        </ul>
                     </div>
                 </div>
                 <a id="goBack" href="">Back</a>

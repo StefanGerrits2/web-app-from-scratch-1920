@@ -3,14 +3,14 @@
 
 export default function dataHelper(data) {
     // Update data
-    let structuredData = {beers: []};
+    let structuredData = [];
     data.forEach(item => {
-        structuredData.beers.push(item);
+        structuredData.push(item);
     });
 
     console.log('original non changed data', structuredData)
 
-    return structuredData.beers.map(item => {
+    return structuredData.map(item => {
         return {
             ...item,
             readableVolume: item.volume.value + ' ' + item.volume.unit,
@@ -25,7 +25,7 @@ export default function dataHelper(data) {
                         ...ingredients.map((ingredient) => {
                             return {
                                 ...ingredient,
-                                type: key
+                                type: key.charAt(0).toUpperCase() + key.slice(1),
                             };
                         })
                     ]
@@ -34,12 +34,12 @@ export default function dataHelper(data) {
                     return [
                         ...accumulator,
                         {
-                            type: key,
-                            name: ingredients
+                            name: ingredients,
+                            type: key.charAt(0).toUpperCase() + key.slice(1),
                         }
                     ]
                 }
-            }, [])
+            }, []),
         }
     }) 
 }
