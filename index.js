@@ -59,38 +59,50 @@
 
 import { Fetcher } from './docs/modules/fetch.js';
 import dataHelper from './docs/modules/dataHelper.js';
-import router from './docs/modules/router.js';
-// import * as utils from './docs/modules/utils.js';
+import * as template from '././docs/modules/templates.js';
+import * as utils from './docs/modules/utils.js';
 
 // Set standard query values
 let page = 1;
 
-// Run main app
-loadApp(page);
+// Store all data
+let allData = {beers: []};
 
 // Main function
-function loadApp(page) {
+function loadOverview(page) {
     // Set url values
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
     const url = `${baseApiUrl}?page=${page}&per_page=12`;
 
+    console.log('fetching...');
     // fetch data
     // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
     return Fetcher.get(url)
         .then(data => dataHelper(data))
         .then(data => {
-            console.log('new data: ', data);
-            // Router
-            router(data);
+            // Store current data plus new data
+            data.forEach(item => {
+                allData.beers.push(item);
+            });
+            
+            console.log('alldata', allData);
+            // Render overview card
+            template.renderOverviewCard(allData);
         });  
-};
+}
 
 // Load more button
 document.querySelector('.loadMore').addEventListener('click', renderMoreCards);
 
+// Load more beers
 function renderMoreCards() {
     // Update query
     page++;
-    console.log(page);
-    loadApp(page);
+    loadOverview(page);
 };
+
+routie({
+    '/': loadOverview(page),    
+
+    ':id': id => template.renderDetailCard(allData.beers.filter(utils.filterClickedBeer(id)))
+});

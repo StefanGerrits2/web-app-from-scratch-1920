@@ -2,16 +2,18 @@
 function renderOverviewCard(data) {
     /* Templating */
     const template = document.querySelector('#overview-template').innerHTML;
-    const container = document.querySelector('.overview__container');
-    container.insertAdjacentHTML('beforeend', Mustache.to_html(template, data));
+    const html = Mustache.to_html(template, data);
+    const box = document.querySelector('.overview__container');
+    box.innerHTML = html;
 }
 
 // Create HTML template and render it
 function renderDetailCard(data) {
+    console.log(data);
     /* Templating */
     const template = document.querySelector('#details-template').innerHTML;
     const container = document.querySelector('.details__container');
-    container.insertAdjacentHTML('beforeend', Mustache.to_html(template, data));
+    container.insertAdjacentHTML('beforeend', Mustache.to_html(template, data[0]));
 
     /* Hide elements */
     document.querySelector('.overview__container').classList.toggle('hide');
