@@ -23,6 +23,12 @@ function hideAndShowElements() {
     document.querySelector('.details__container').classList.toggle('show-details');
 }
 
+const loadingAnimation = document.querySelector('.loading-state2');
+document.querySelector('.loadMore').addEventListener('click', () => {
+    loadingAnimation.classList.toggle('loading-animation');
+   
+});
+
 export {
     getStoredData,
     storeData,
