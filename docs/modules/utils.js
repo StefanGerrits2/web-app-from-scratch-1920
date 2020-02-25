@@ -26,7 +26,9 @@ function hideAndShowElements() {
 const loadingAnimation = document.querySelector('.loading-state2');
 document.querySelector('.loadMore').addEventListener('click', () => {
     loadingAnimation.classList.toggle('loading-animation');
-   
+    setTimeout(() => {
+        loadingAnimation.classList.toggle('loading-animation');
+    }, 1500);
 });
 
 export {
