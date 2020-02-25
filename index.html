@@ -5,14 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="./docs/css/global.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
         <title>Beer collection</title>
     </head>
     <body>
         <header id="header">
             <h1>Brewdog beer recipes</h1>
         </header>
-        <div class="overview__container"></div>
+        <div class="overview__container">
+            <div class="loading-state">
+                <img src="./docs/images/beer-loading.gif" alt="">
+                <p>Loading</p>
+            </div>
+        </div>
         <div class="pagination__container">
             <button class="loadMore">Load more</button>
         </div>
@@ -32,6 +36,7 @@
                 </article>
             {{/beers}}
         </script>
+
         <!-- Details template -->
         <script type="text/template" id="details-template">
             <article class="article-detail__container" id="{{id}}">
@@ -64,7 +69,24 @@
                 </div>
                 <a id="goBack" href="">Back</a>
             </article>
+            <div class="related-beers__container">
+                <h2>Beers around the same alcohol by volume</h2>
+                <div class="related-beers__container-flex">
+                    {{#relatedBeers}}
+                        <div class="related-beers__item">
+                            <h3>
+                                <a href="#{{id}}">{{name}}</a>
+                            </h3>
+                            <a href="#{{id}}">
+                                <img src="{{image_url}}"/>
+                            </a>
+                            <p>Alcohol by volume: {{abv}}%</p>
+                        </div>
+                    {{/relatedBeers}}
+                </div>
+            </div>
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
         <script src="./docs/modules//libraries/routie.js"></script>
         <script type="module" src="./index.js"></script>
     </body>

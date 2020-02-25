@@ -11,7 +11,7 @@ export default function dataHelper(data) {
     console.log('original non changed data', structuredData)
 
     return structuredData.map(item => {
-        return {
+        return { 
             ...item,
             readableVolume: item.volume.value + ' ' + item.volume.unit,
             readableBoilVolume: item.boil_volume = item.boil_volume.value + ' ' + item.boil_volume.unit,
@@ -40,6 +40,12 @@ export default function dataHelper(data) {
                     ]
                 }
             }, []),
+            relatedBeers: structuredData.filter(beer => {
+                // Check if beer percentage is the same and if it's not the same beer
+                if(beer.abv < item.abv + .5 && beer.abv > item.abv -.5 && beer.id !== item.id) {
+                    return beer
+                }
+            })
         }
     }) 
 }

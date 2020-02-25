@@ -72,7 +72,7 @@ let allData = {beers: []};
 function renderOverviewCards() {
     // Set url values
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
-    const url = `${baseApiUrl}?page=${currentPage}&per_page=12`;
+    const url = `${baseApiUrl}?page=${currentPage}&per_page=36`;
 
     console.log('fetching...');
     // fetch data
@@ -85,8 +85,10 @@ function renderOverviewCards() {
                 allData.beers.push(item);
             });
             console.log('alldata', allData);
-            // Render overview card
-            template.renderOverviewCard(allData);
+            // Render overview card with delay for user feedback
+            setTimeout(() => {
+                template.renderOverviewCard(allData);
+            }, 1000);;
         });  
 }
 
