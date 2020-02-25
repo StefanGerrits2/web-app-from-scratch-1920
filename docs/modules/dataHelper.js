@@ -41,7 +41,7 @@ export default function dataHelper(data) {
                 }
             }, []),
             relatedBeers: structuredData.filter(beer => {
-                // Check if beer percentage is the same and if it's not the same beer
+                // Check if beer percentage is somewhat the same and if it's not the same beer
                 if(beer.abv < item.abv + .5 && beer.abv > item.abv -.5 && beer.id !== item.id) {
                     return beer
                 }

@@ -60,12 +60,12 @@
 import { Fetcher } from './docs/modules/fetch.js';
 import dataHelper from './docs/modules/dataHelper.js';
 import * as template from '././docs/modules/templates.js';
-import * as utils from './docs/modules/utils.js';
+// import * as utils from './docs/modules/utils.js';
 
 // Set and update current page
 let currentPage = 1;
 
-// Store all data
+// Set and update all fetched data
 let allData = {beers: []};
 
 // Main function
@@ -74,7 +74,6 @@ function renderOverviewCards() {
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
     const url = `${baseApiUrl}?page=${currentPage}&per_page=36`;
 
-    console.log('fetching...');
     // fetch data
     // https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939
     Fetcher.get(url)
@@ -88,7 +87,7 @@ function renderOverviewCards() {
             // Render overview card with delay for user feedback
             setTimeout(() => {
                 template.renderOverviewCard(allData);
-            }, 1000);;
+            }, 1500);
         });  
 }
 
@@ -100,10 +99,6 @@ document.querySelector('.loadMore').addEventListener('click', () => {
 
 routie({
     '/': renderOverviewCards(),    
-
-    ':id': id => template.renderDetailCard(
-        allData.beers.filter(
-            utils.filterClickedBeer(id)
-        )
-    )
+    
+    ':id': id => template.renderDetailCard(allData, id),
 });
