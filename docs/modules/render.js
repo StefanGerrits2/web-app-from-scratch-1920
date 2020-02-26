@@ -1,4 +1,4 @@
-import * as utils from '../modules/utils.js';
+import * as utils from './utils.js';
 
 // Create HTML template and render it
 function renderOverviewCard(data) {

@@ -1,6 +1,6 @@
 import { Fetcher } from './docs/modules/fetch.js';
 import dataHelper from './docs/modules/dataHelper.js';
-import * as template from '././docs/modules/templates.js';
+import * as render from './docs/modules/render.js';
 
 // Set and update current page
 let currentPage = 1;
@@ -24,24 +24,24 @@ function getData() {
         }); 
 }
 
-function renderOverviewCards() {
+function getAndRenderOverview() {
     // Get data
     getData();
     // Render overview card with delay for user feedback
     setTimeout(() => {
-        template.renderOverviewCard(allData);
+        render.renderOverviewCard(allData);
     }, 1500);
 }
 
 // Load more beers
 document.querySelector('.loadMore').addEventListener('click', () => {
     currentPage++;
-    renderOverviewCards(currentPage);
+    getAndRenderOverview(currentPage);
 });
 
 // Router
 routie({
-    '/': renderOverviewCards(),    
+    '/': getAndRenderOverview(),    
     
-    ':id': id => template.renderDetailCard(allData, id),
+    ':id': id => render.renderDetailCard(allData, id),
 });
