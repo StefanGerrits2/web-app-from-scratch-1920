@@ -22,7 +22,7 @@ function renderDetailCard(data, id) {
     // Always scroll to top
     window.scrollTo(0, 0);
 
-    console.log(data);
+    console.log('clicked beer: ', data);
 
     /* Templating */
     const template = document.querySelector('#details-template').innerHTML;

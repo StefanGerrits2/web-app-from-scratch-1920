@@ -1,20 +1,14 @@
-// Add data
-// let structuredData = {beers: []};
-
 export default function dataHelper(data) {
-    // Update data
-    let structuredData = [];
-    data.forEach(item => {
-        structuredData.push(item);
-    });
+    
+    console.log('original non changed data', data)
 
-    console.log('original non changed data', structuredData)
-
-    return structuredData.map(item => {
+    return data.map(item => {
         return { 
             ...item,
             readableVolume: item.volume.value + ' ' + item.volume.unit,
             readableBoilVolume: item.boil_volume = item.boil_volume.value + ' ' + item.boil_volume.unit,
+            // Guido Bouman helped me writed some parts of the following code:
+            // Move all objects of multiple arrays higher up so I can render them all easier
             ingredients: Object.entries(item.ingredients).reduce((accumulator, ingredientsCategory) => {
                 const key = ingredientsCategory[0];
                 const ingredients = ingredientsCategory[1];
@@ -40,7 +34,8 @@ export default function dataHelper(data) {
                     ]
                 }
             }, []),
-            relatedBeers: structuredData.filter(beer => {
+            //
+            relatedBeers: data.filter(beer => {
                 // Check if beer percentage is somewhat the same and if it's not the same beer
                 if(beer.abv < item.abv + .5 && beer.abv > item.abv -.5 && beer.id !== item.id) {
                     return beer
