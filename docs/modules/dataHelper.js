@@ -1,6 +1,6 @@
 export default function dataHelper(data) {
     
-    console.log('original non changed data', data)
+    console.log('original non changed data', data);
 
     return data.map(item => {
         return { 
@@ -23,7 +23,7 @@ export default function dataHelper(data) {
                                 type: key.charAt(0).toUpperCase() + key.slice(1),
                             };
                         })
-                    ]
+                    ];
                 }
                 else {
                     return [
@@ -32,17 +32,17 @@ export default function dataHelper(data) {
                         {
                             name: ingredients,
                             type: key.charAt(0).toUpperCase() + key.slice(1),
-                        }
-                    ]
+                        },
+                    ];
                 }
             }, []),
             //
             relatedBeers: data.filter(beer => {
                 // Check if beer percentage is somewhat the same and if it's not the same beer
                 if(beer.abv < item.abv + .5 && beer.abv > item.abv -.5 && beer.id !== item.id) {
-                    return beer
-                }
+                    return beer;
+                };
             })
-        }
-    }) 
-}
+        };
+    });
+};

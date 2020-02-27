@@ -36,10 +36,11 @@ document.querySelector('.loadMore').addEventListener('click', () => {
 
 // Router
 routie({
+    // Overview
     '': () => {
         getBeers(currentPage);
         routeHandler.beersOverview(allData);
     },    
-    
+    // Detail page
     ':id': id => routeHandler.detailPage(allData, id),
 });

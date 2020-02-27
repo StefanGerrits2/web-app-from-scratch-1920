@@ -19,7 +19,7 @@ document.querySelector('.loadMore').addEventListener('click', () => {
     const loadingAnimation = document.querySelector('.loading-state2');
 
     loadingAnimation.classList.toggle('loading-animation');
-
+    // Set timeout for loading feedback
     setTimeout(() => {
         loadingAnimation.classList.toggle('loading-animation');
     }, 1500);
