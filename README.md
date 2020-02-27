@@ -2,32 +2,43 @@
 
 ## Concept
 
-![image](https://user-images.githubusercontent.com/45566396/74153745-8e133580-4c11-11ea-8278-3786d9889389.png)
+#### Overview page
+![image](https://user-images.githubusercontent.com/45566396/75431221-d4280300-594c-11ea-83a8-6c5cce3facc8.png)
 
-![image](https://user-images.githubusercontent.com/45566396/74469402-e0b45200-4e9c-11ea-9f25-5adde59f553a.png)
+#### Detail page: general
+![image](https://user-images.githubusercontent.com/45566396/75431288-ef930e00-594c-11ea-850b-c3ed91827fc2.png)
+
+#### Detail page: Related beers around the same alcohol percentage
+![image](https://user-images.githubusercontent.com/45566396/75431532-40a30200-594d-11ea-9c22-543ce1450fa0.png)
 
 ### Description
 
-This is a single page web app that uses the PUNK API to receive beers. The beers are shown in the overview page. You can click on a beer to checkout the detail page for further information; including ingredients and recipes.
+This is a single page web app that uses the PUNK API to receive beers. The beers are shown in the overview page. I fetch 36 beers each time because you cannot fetch all beers in one go. For this sake, I implemented a loadmore button to load in more data. You can click on a beer to checkout the detail page for further information; including ingredients and recipes. There are also related beers shown around the same alcohol percentage. When you click on a related beer you will see the detail page of that beer.
 
 ## Features
 
 * Loading in data from the PUNK API
 * Loading in more data when you click on a button
 * Being able to view a detail page
+* Being able to view related beers around the same alcohol by volume on the detail page
+* Being able to click a related beer to render the new detail page
 
-Future features:
+Features if I had more time
 
 * Local storage
-* 
+* Filter / sort on overview page, for example: alcohol by volume, brew date, volume etc
 
 ## How it works
 
-#### Actor diagram
+#### Actor diagram (needs update)
+
+Explanation here
 
 ![image](https://user-images.githubusercontent.com/45566396/74469222-85825f80-4e9c-11ea-9955-d1a7b22684fb.png)
 
-#### Interaction diagram
+#### Interaction diagram (needs update)
+
+Exlanation here 
 
 ![image](https://user-images.githubusercontent.com/45566396/74469284-a5198800-4e9c-11ea-9184-2651bc2925d6.png)
 
@@ -78,16 +89,20 @@ Returns different kinds of beers with a lot of information, some details are:
 * No key needed
 * HTTPS
 
-#### Default output in the console:
-![image](https://user-images.githubusercontent.com/45566396/74155214-71c4c800-4c14-11ea-8a46-902ec25dc87f.png)
+#### This is how a raw object looks when I fetch it from the API
+![image](https://user-images.githubusercontent.com/45566396/75431949-eb1b2500-594d-11ea-92a6-378961052144.png)
+
+#### I transformed my data objects to this:
+![image](https://user-images.githubusercontent.com/45566396/75431824-b909c300-594d-11ea-8a44-edd36499667d.png)
 
 ## Sources
 
-* [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code.
+* [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code
+* [Fetch](https://codeburst.io/fetch-api-was-bringing-darkness-to-my-codebase-so-i-did-something-to-illuminate-it-7f2d8826e939) - To understand how you can implement good error handling in a fetch
 
 ## Credits
 
-* 
+* [Guido Bouman](https://github.com/guidobouman) - He helped me transform some data
 
 ## Check it out!
 
