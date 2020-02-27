@@ -8,7 +8,7 @@ let currentPage = 1;
 // Set and update all fetched data
 const allData = {beers: []};
 
-function getData(currentPage) {
+function getBeers(currentPage) {
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
     const url = `${baseApiUrl}?page=${currentPage}&per_page=36`;
 
@@ -29,7 +29,7 @@ document.querySelector('.loadMore').addEventListener('click', () => {
     // Add currentpage + 1
     currentPage++;
     // Fetch new data
-    getData(currentPage);
+    getBeers(currentPage);
     // Render beersoverview with updated data
     routeHandler.beersOverview(allData);
 });
@@ -37,7 +37,7 @@ document.querySelector('.loadMore').addEventListener('click', () => {
 // Router
 routie({
     '': () => {
-        getData(currentPage);
+        getBeers(currentPage);
         routeHandler.beersOverview(allData);
     },    
     
