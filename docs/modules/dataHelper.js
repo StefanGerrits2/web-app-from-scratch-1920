@@ -16,6 +16,7 @@ export default function dataHelper(data) {
                 if (Array.isArray(ingredients)) {
                     return [
                         ...accumulator,
+                        // Map over the two arrays
                         ...ingredients.map((ingredient) => {
                             return {
                                 ...ingredient,
@@ -27,6 +28,7 @@ export default function dataHelper(data) {
                 else {
                     return [
                         ...accumulator,
+                        // No map because this is a single string
                         {
                             name: ingredients,
                             type: key.charAt(0).toUpperCase() + key.slice(1),

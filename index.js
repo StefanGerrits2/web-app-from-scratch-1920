@@ -1,6 +1,6 @@
 import { Fetcher } from './docs/modules/fetch.js';
 import dataHelper from './docs/modules/dataHelper.js';
-import * as render from './docs/modules/render.js';
+import * as routeHandler from './docs/modules/routeHandler.js';
 
 // Set and update current page
 let currentPage = 1;
@@ -8,7 +8,7 @@ let currentPage = 1;
 // Set and update all fetched data
 const allData = {beers: []};
 
-function getData() {
+function getData(currentPage) {
     const baseApiUrl = 'https://api.punkapi.com/v2/beers';
     const url = `${baseApiUrl}?page=${currentPage}&per_page=36`;
 
@@ -24,24 +24,22 @@ function getData() {
         }); 
 }
 
-function getAndRenderOverview() {
-    // Get data
-    getData();
-    // Render overview card with delay for user feedback
-    setTimeout(() => {
-        render.renderOverviewCard(allData);
-    }, 1500);
-}
-
 // Load more beers
 document.querySelector('.loadMore').addEventListener('click', () => {
+    // Add currentpage + 1
     currentPage++;
-    getAndRenderOverview(currentPage);
+    // Fetch new data
+    getData(currentPage);
+    // Render beersoverview with updated data
+    routeHandler.beersOverview(allData);
 });
 
 // Router
 routie({
-    '/': getAndRenderOverview(),    
+    '': () => {
+        getData(currentPage);
+        routeHandler.beersOverview(allData);
+    },    
     
-    ':id': id => render.renderDetailCard(allData, id),
+    ':id': id => routeHandler.detailPage(allData, id),
 });
